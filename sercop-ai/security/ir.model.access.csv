@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sercop_document_user,sercop.document.user,model_sercop_document,base.group_user,1,1,1,1
+access_sercop_ai_provider_user,sercop.ai.provider.user,model_sercop_ai_provider,base.group_user,1,0,0,0
+access_sercop_ai_provider_system,sercop.ai.provider.system,model_sercop_ai_provider,base.group_system,1,1,1,1
+access_ai_quotation_wizard_user,ai.quotation.wizard.user,model_ai_quotation_wizard,base.group_user,1,1,1,1

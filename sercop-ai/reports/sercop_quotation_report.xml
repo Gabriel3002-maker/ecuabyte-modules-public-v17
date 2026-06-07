@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_sercop_quotation" model="ir.actions.report">
+        <field name="name">Cotización SERCOP</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sercop-ai.report_sercop_quotation_view</field>
+        <field name="report_file">sercop-ai.report_sercop_quotation_view</field>
+        <field name="binding_model_id" ref="sale.model_sale_order"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'Cotizacion SERCOP - %s' % (object.name)</field>
+    </record>
+
+    <template id="report_sercop_quotation_view">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-set="doc_template" t-value="False"/>
+                <div class="page">
+                    <h2 class="text-center">COTIZACIÓN</h2>
+                    <h4 class="text-center">
+                        <span t-field="doc.company_id.display_name"/>
+                    </h4>
+                    <hr/>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <strong>Cliente:</strong>
+                            <p t-field="doc.partner_id.display_name"/>
+                            <p t-if="doc.partner_id.email" t-field="doc.partner_id.email"/>
+                            <p t-if="doc.partner_id.phone" t-field="doc.partner_id.phone"/>
+                        </div>
+                        <div class="col-6">
+                            <strong>No. Cotización:</strong>
+                            <p t-field="doc.name"/>
+                            <strong>Fecha:</strong>
+                            <p t-field="doc.date_order"/>
+                            <t t-if="doc.sercop_proceso_id">
+                                <strong>Proceso SERCOP:</strong>
+                                <p t-field="doc.sercop_proceso_id.codigo_contratacion"/>
+                                <p t-field="doc.sercop_proceso_id.entidad_contratante"/>
+                            </t>
+                        </div>
+                    </div>
+
+                    <t t-if="doc.origin">
+                        <p><strong>Origen:</strong> <span t-field="doc.origin"/></p>
+                    </t>
+
+                    <hr/>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Descripción</th>
+                                <th class="text-center">Cantidad</th>
+                                <th class="text-right">Precio Unitario</th>
+                                <th class="text-right">Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="doc.order_line" t-as="line">
+                                <tr>
+                                    <td><t t-esc="line_index + 1"/></td>
+                                    <td>
+                                        <span t-field="line.name"/>
+                                        <t t-if="line.product_id.default_code">
+                                            <br/><small>Código: <t t-esc="line.product_id.default_code"/></small>
+                                        </t>
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-esc="line.product_uom_qty"/>
+                                        <span t-field="line.product_uom_id.name"/>
+                                    </td>
+                                    <td class="text-right" t-esc="'$ ' + '{:,.2f}'.format(line.price_unit)"/>
+                                    <td class="text-right" t-esc="'$ ' + '{:,.2f}'.format(line.price_subtotal)"/>
+                                </tr>
+                            </t>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4" class="text-right"><strong>Subtotal</strong></td>
+                                <td class="text-right" t-esc="'$ ' + '{:,.2f}'.format(doc.amount_untaxed)"/>
+                            </tr>
+                            <tr>
+                                <td colspan="4" class="text-right"><strong>IVA</strong></td>
+                                <td class="text-right" t-esc="'$ ' + '{:,.2f}'.format(doc.amount_tax)"/>
+                            </tr>
+                            <tr>
+                                <td colspan="4" class="text-right"><strong>TOTAL</strong></td>
+                                <td class="text-right"><strong t-esc="'$ ' + '{:,.2f}'.format(doc.amount_total)"/></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                    <t t-if="doc.note">
+                        <hr/>
+                        <div class="note">
+                            <strong>Notas y Condiciones:</strong>
+                            <p t-field="doc.note" t-options='{"nl2br": True}'/>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

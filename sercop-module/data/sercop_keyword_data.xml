@@ -1,0 +1,148 @@
+<odoo>
+    <data noupdate="1">
+        <record id="sercop_keyword_software" model="sercop.keyword">
+            <field name="name">software</field>
+            <field name="category">software</field>
+        </record>
+        <record id="sercop_keyword_hosting" model="sercop.keyword">
+            <field name="name">hosting</field>
+            <field name="category">dominios</field>
+        </record>
+        <record id="sercop_keyword_servidor" model="sercop.keyword">
+            <field name="name">servidor</field>
+            <field name="category">infraestructura</field>
+        </record>
+        <record id="sercop_keyword_aplicacion" model="sercop.keyword">
+            <field name="name">aplicacion</field>
+            <field name="category">software</field>
+        </record>
+        <record id="sercop_keyword_aplicativo" model="sercop.keyword">
+            <field name="name">aplicativo</field>
+            <field name="category">software</field>
+        </record>
+        <record id="sercop_keyword_sistema" model="sercop.keyword">
+            <field name="name">sistema informatico</field>
+            <field name="category">software</field>
+        </record>
+        <record id="sercop_keyword_plataforma" model="sercop.keyword">
+            <field name="name">plataforma</field>
+            <field name="category">software</field>
+        </record>
+        <record id="sercop_keyword_licencia" model="sercop.keyword">
+            <field name="name">licencia</field>
+            <field name="category">software</field>
+        </record>
+        <record id="sercop_keyword_dominio" model="sercop.keyword">
+            <field name="name">dominio</field>
+            <field name="category">dominios</field>
+        </record>
+        <record id="sercop_keyword_certificado" model="sercop.keyword">
+            <field name="name">certificado ssl</field>
+            <field name="category">dominios</field>
+        </record>
+        <record id="sercop_keyword_pagina_web" model="sercop.keyword">
+            <field name="name">pagina web</field>
+            <field name="category">dominios</field>
+        </record>
+        <record id="sercop_keyword_desarrollo" model="sercop.keyword">
+            <field name="name">desarrollo</field>
+            <field name="category">software</field>
+        </record>
+        <record id="sercop_keyword_base_datos" model="sercop.keyword">
+            <field name="name">base de datos</field>
+            <field name="category">software</field>
+        </record>
+        <record id="sercop_keyword_soporte_tecnico" model="sercop.keyword">
+            <field name="name">soporte tecnico</field>
+            <field name="category">servicios</field>
+        </record>
+        <record id="sercop_keyword_redes" model="sercop.keyword">
+            <field name="name">redes</field>
+            <field name="category">infraestructura</field>
+        </record>
+        <record id="sercop_keyword_firewall" model="sercop.keyword">
+            <field name="name">firewall</field>
+            <field name="category">seguridad</field>
+        </record>
+        <record id="sercop_keyword_antivirus" model="sercop.keyword">
+            <field name="name">antivirus</field>
+            <field name="category">seguridad</field>
+        </record>
+        <record id="sercop_keyword_computador" model="sercop.keyword">
+            <field name="name">computador</field>
+            <field name="category">hardware</field>
+        </record>
+        <record id="sercop_keyword_impresora" model="sercop.keyword">
+            <field name="name">impresora</field>
+            <field name="category">hardware</field>
+        </record>
+        <record id="sercop_keyword_ups" model="sercop.keyword">
+            <field name="name">ups</field>
+            <field name="category">infraestructura</field>
+        </record>
+        <record id="sercop_keyword_switch" model="sercop.keyword">
+            <field name="name">switch red</field>
+            <field name="category">infraestructura</field>
+        </record>
+        <record id="sercop_keyword_camara" model="sercop.keyword">
+            <field name="name">camara</field>
+            <field name="category">seguridad</field>
+        </record>
+        <record id="sercop_keyword_consultoria" model="sercop.keyword">
+            <field name="name">consultoria informatica</field>
+            <field name="category">servicios</field>
+        </record>
+        <record id="sercop_keyword_actualizacion" model="sercop.keyword">
+            <field name="name">actualizacion sistema</field>
+            <field name="category">software</field>
+        </record>
+        <record id="sercop_keyword_erp" model="sercop.keyword">
+            <field name="name">erp</field>
+            <field name="category">software</field>
+        </record>
+        <record id="sercop_keyword_crm" model="sercop.keyword">
+            <field name="name">crm</field>
+            <field name="category">software</field>
+        </record>
+        <record id="sercop_keyword_facturacion" model="sercop.keyword">
+            <field name="name">facturacion</field>
+            <field name="category">software</field>
+        </record>
+        <record id="sercop_keyword_hardware" model="sercop.keyword">
+            <field name="name">hardware</field>
+            <field name="category">hardware</field>
+        </record>
+        <record id="sercop_keyword_telecomunicaciones" model="sercop.keyword">
+            <field name="name">telecomunicaciones</field>
+            <field name="category">infraestructura</field>
+        </record>
+        <record id="sercop_keyword_internet" model="sercop.keyword">
+            <field name="name">internet</field>
+            <field name="category">infraestructura</field>
+        </record>
+        <record id="sercop_keyword_tecnologia" model="sercop.keyword">
+            <field name="name">tecnologia</field>
+            <field name="category">servicios</field>
+        </record>
+        <record id="sercop_keyword_data_center" model="sercop.keyword">
+            <field name="name">data center</field>
+            <field name="category">infraestructura</field>
+        </record>
+        <record id="sercop_keyword_nube" model="sercop.keyword">
+            <field name="name">nube</field>
+            <field name="category">infraestructura</field>
+        </record>
+        <record id="sercop_keyword_api" model="sercop.keyword">
+            <field name="name">api</field>
+            <field name="category">software</field>
+        </record>
+        <record id="sercop_keyword_ciberseguridad" model="sercop.keyword">
+            <field name="name">ciberseguridad</field>
+            <field name="category">seguridad</field>
+        </record>
+        <record id="sercop_keyword_automatizacion" model="sercop.keyword">
+            <field name="name">automatizacion</field>
+            <field name="category">software</field>
+        </record>
+    </data>
+</odoo>

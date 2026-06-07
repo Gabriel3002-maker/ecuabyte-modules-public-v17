@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="ecuabyte_contactus" inherit_id="website.contactus" name="Ecuabyte Contact Us" active="True">
+    <!-- Change form model to CRM -->
+    <xpath expr="//form[@id='contactus_form']" position="attributes">
+        <attribute name="data-model_name">crm.lead</attribute>
+        <attribute name="data-success-page">/contactus-thank-you</attribute>
+    </xpath>
+
+    <!-- Change the form fields to map to CRM fields -->
+    <!-- Name -> contact_name -->
+    <xpath expr="//input[@name='name']" position="attributes">
+        <attribute name="name">contact_name</attribute>
+    </xpath>
+    <!-- Company -> partner_name -->
+    <xpath expr="//input[@name='company']" position="attributes">
+        <attribute name="name">partner_name</attribute>
+    </xpath>
+    <!-- Subject -> remove, we auto-generate it -->
+    <xpath expr="//input[@name='subject']/ancestor::div[hasclass('s_website_form_field')]" position="replace"/>
+
+    <!-- Add Servicio de interés dropdown after company -->
+    <xpath expr="//input[@name='partner_name']/ancestor::div[hasclass('s_website_form_field')]" position="after">
+        <div class="mb-0 py-2 col-12 s_website_form_field s_website_form_custom s_website_form_required" data-type="char" data-name="Field">
+            <div class="row s_col_no_resize s_col_no_bgcolor">
+                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px">
+                    <span class="s_website_form_label_content">Servicio de interés</span>
+                    <span class="s_website_form_mark"> *</span>
+                </label>
+                <div class="col-sm">
+                    <select class="form-control s_website_form_input" name="servicio_interes" required="required">
+                        <option value="">Seleccione el servicio...</option>
+                        <option value="Desarrollo a Medida">Desarrollo a Medida</option>
+                        <option value="Odoo ERP">Odoo ERP</option>
+                        <option value="Moodle LMS">Moodle LMS</option>
+                        <option value="Cloud, Hosting &amp; Dominios">Cloud, Hosting &amp; Dominios</option>
+                        <option value="Auditorías de Software">Auditorías de Software</option>
+                        <option value="Arduino &amp; IoT">Arduino &amp; IoT</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </xpath>
+
+    <!-- Update Question label -->
+    <xpath expr="//textarea[@name='description']/ancestor::div[hasclass('s_website_form_field')]//span[hasclass('s_website_form_label_content')]" position="replace">
+        <span class="s_website_form_label_content">Mensaje</span>
+    </xpath>
+
+    <!-- Update button text -->
+    <xpath expr="//a[hasclass('s_website_form_send')]" position="replace">
+        <a href="#" role="button" class="btn btn-primary s_website_form_send">Enviar mensaje →</a>
+    </xpath>
+
+    <!-- Replace right sidebar with real company info -->
+    <xpath expr="//div[@class='col-lg-4 mt-4 mt-lg-0']" position="replace">
+        <div class="col-lg-4 mt-4 mt-lg-0">
+            <ul class="list-unstyled mb-0 ps-2">
+                <li class="h5">Ecuabyte Innovations</li>
+                <li><i class="fa fa-map-marker fa-fw me-2"/>Ecuador 🇪🇨</li>
+                <li><i class="fa fa-phone fa-fw me-2"/><span class="o_force_ltr">+593 988 422 692</span></li>
+                <li><i class="fa fa-envelope fa-fw me-2"/>innovationsecuabyte@gmail.com</li>
+                <li><i class="fa fa-globe fa-fw me-2"/>ecuabyte-innovations.com</li>
+            </ul>
+        </div>
+    </xpath>
+
+    <!-- Update heading -->
+    <xpath expr="//h1[text()='Contact us']" position="replace">
+        <h1>Hablemos</h1>
+    </xpath>
+
+    <!-- Update subtitle -->
+    <xpath expr="//section[hasclass('s_text_block')]//p[1]" position="replace">
+        <p>¿Listo para transformar tu empresa?<br/>Cuéntanos tu proyecto y te respondemos en menos de 24 horas.</p>
+    </xpath>
+</template>
+
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_crm_lead_form_inherit_sercop" model="ir.ui.view">
+        <field name="name">crm.lead.form.sercop.documents</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Documentos SERCOP" invisible="not sercop_document_ids">
+                    <field name="sercop_document_ids" nolabel="1">
+                        <tree>
+                            <field name="name"/>
+                            <field name="document_type"/>
+                            <field name="filename"/>
+                            <field name="create_date"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

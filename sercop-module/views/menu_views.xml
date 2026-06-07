@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_sercop_proceso" model="ir.actions.act_window">
+        <field name="name">Procesos de Contratación</field>
+        <field name="res_model">sercop.proceso</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Importa procesos desde Compras Públicas
+            </p>
+            <p>
+                Utilice el menú <b>Importar desde SERCOP</b> para traer
+                las necesidades de contratación del portal de Compras Públicas.
+                Los procesos relacionados con tecnología (software, hosting,
+                servidores, etc.) se marcarán automáticamente y se podrán
+                convertir en oportunidades CRM.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_sercop_keyword" model="ir.actions.act_window">
+        <field name="name">Palabras Clave</field>
+        <field name="res_model">sercop.keyword</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_sercop_import_wizard" model="ir.actions.act_window">
+        <field name="name">Importar desde SERCOP</field>
+        <field name="res_model">sercop.import.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_sercop_root" name="SERCOP" sequence="80"
+              web_icon="sercop-module,static/description/icon.png"/>
+
+    <menuitem id="menu_sercop_procesos" name="Procesos de Contratación"
+              parent="menu_sercop_root" sequence="10"
+              action="action_sercop_proceso"/>
+
+    <menuitem id="menu_sercop_keywords" name="Palabras Clave"
+              parent="menu_sercop_root" sequence="20"
+              action="action_sercop_keyword"/>
+
+    <menuitem id="menu_sercop_import" name="Importar desde SERCOP"
+              parent="menu_sercop_root" sequence="30"
+              action="action_sercop_import_wizard"/>
+</odoo>

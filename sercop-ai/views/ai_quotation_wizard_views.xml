@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_ai_quotation_wizard_form" model="ir.ui.view">
+        <field name="name">ai.quotation.wizard.form</field>
+        <field name="model">ai.quotation.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="state" invisible="1"/>
+                <field name="ai_response_json" invisible="1"/>
+
+                <group invisible="state != 'config'">
+                    <group>
+                        <field name="proceso_id"/>
+                        <field name="ai_provider_id" options="{'no_create': True}"/>
+                    </group>
+                    <group string="Documentos del Proceso">
+                        <field name="proceso_id" readonly="1"/>
+                        <field name="proceso_id_has_docs" readonly="1"/>
+                    </group>
+                </group>
+
+                <group string="Analizando documentos con IA..."
+                    invisible="state != 'processing'">
+                    <p class="text-muted">La IA está procesando los documentos. Espere unos segundos...</p>
+                    <div class="text-center">
+                        <i class="fa fa-spinner fa-spin fa-3x"/>
+                        <p class="text-info" style="margin-top: 12px;">
+                            <i class="fa fa-clock-o"/> Haga clic en "Verificar resultado" abajo después de ~30 segundos...
+                        </p>
+                    </div>
+                </group>
+
+                <group string="Líneas de Cotización Generadas por IA"
+                    invisible="state != 'preview'">
+                    <p class="text-success">
+                        <i class="fa fa-check-circle"/> La IA generó las líneas. Revise y edite antes de crear la cotización.
+                    </p>
+                    <field name="lineas_json" nolabel="1"
+                        style="font-family: monospace; min-height: 300px;"/>
+                </group>
+                <group string="Respuesta completa de la IA (debug)"
+                    invisible="state != 'preview'">
+                    <field name="ai_response_json" nolabel="1"
+                        style="font-family: monospace; min-height: 200px; font-size: 80%;"/>
+                </group>
+
+                <group string="Error" invisible="state != 'error'">
+                    <p class="text-danger">
+                        <i class="fa fa-exclamation-triangle"/>
+                        Error al analizar con IA
+                    </p>
+                    <field name="error_message" nolabel="1"/>
+                </group>
+
+                <group string="Resultado" invisible="state != 'done'">
+                    <group>
+                        <field name="quotation_id"/>
+                    </group>
+                </group>
+
+                <footer>
+                    <button name="action_analyze" string="Analizar Documentos con IA"
+                        type="object" class="btn-primary"
+                        invisible="state != 'config'"/>
+                    <button name="action_check_result" string="🔄 Verificar resultado"
+                        type="object" class="btn-info"
+                        invisible="state != 'processing'"/>
+                    <button name="action_retry" string="Intentar de nuevo"
+                        type="object" class="btn-warning"
+                        invisible="state != 'error'"/>
+                    <button name="action_create_quotation" string="Crear Cotización"
+                        type="object" class="btn-success"
+                        invisible="state != 'preview'"/>
+                    <button name="action_open_quotation" string="Ver Cotización Creada"
+                        type="object" class="btn-info"
+                        invisible="state != 'done'"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"
+                        invisible="state in ('done', 'preview')"/>
+                    <button string="Cerrar" class="btn-primary" special="cancel"
+                        invisible="state not in ('done', 'preview', 'error')"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_ai_quotation_wizard" model="ir.actions.act_window">
+        <field name="name">Generar Cotización con IA</field>
+        <field name="res_model">ai.quotation.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

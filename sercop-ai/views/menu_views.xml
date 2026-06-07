@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_sercop_ai_config"
+              name="IA para Proformas"
+              parent="sercop-module.menu_sercop_root"
+              sequence="40"
+              action="action_sercop_ai_provider"/>
+</odoo>

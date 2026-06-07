@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- Custom Header for Ecuabyte -->
+<template id="ecuabyte_header" inherit_id="website.template_header_hamburger" name="Ecuabyte Header" active="True">
+    <xpath expr="//*[@id='o_main_nav']//div[hasclass('offcanvas')]//ul[last()]" position="inside">
+        <li class="d-lg-none mt-2">
+            <a href="/contactus" class="btn btn-primary w-100">Solicitar Demo</a>
+        </li>
+    </xpath>
+</template>
+
+</odoo>

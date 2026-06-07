@@ -1,0 +1,97 @@
+$o-theme-color-palettes: map-merge($o-theme-color-palettes,
+    (
+        'ecuabyte-1': (
+            'alpha': #f0f0f0,
+            'beta': #2e86c1,
+            'gamma': #1b4f72,
+            'delta': #154360,
+            'epsilon': #0e2f44,
+        ),
+        'ecuabyte-2': (
+            'alpha': #f7f9f9,
+            'beta': #1abc9c,
+            'gamma': #148f77,
+            'delta': #0e6655,
+            'epsilon': #0b5345,
+        ),
+        'ecuabyte-3': (
+            'alpha': #fdfefe,
+            'beta': #e74c3c,
+            'gamma': #cb4335,
+            'delta': #b03a2e,
+            'epsilon': #922b21,
+        ),
+    )
+);
+
+$o-theme-h1-font-size-multiplier: (56 / 16);
+$o-theme-h2-font-size-multiplier: (42 / 16);
+$o-theme-h3-font-size-multiplier: (32 / 16);
+$o-theme-h4-font-size-multiplier: (22 / 16);
+$o-theme-h5-font-size-multiplier: (18 / 16);
+$o-theme-h6-font-size-multiplier: (16 / 16);
+
+$o-theme-font-configs: (
+    'Open Sans': (
+        'family': ('Open Sans', sans-serif),
+        'url': 'Open+Sans:300,300i,400,400i,700,700i',
+    ),
+    'Lato': (
+        'family': ('Lato', sans-serif),
+        'url': 'Lato:300,300i,400,400i,700,700i',
+    ),
+    'Montserrat': (
+        'family': ('Montserrat', sans-serif),
+        'url': 'Montserrat:300,300i,400,400i,700,700i',
+    ),
+    'Roboto': (
+        'family': ('Roboto', sans-serif),
+        'url': 'Roboto:300,300i,400,400i,700,700i',
+    ),
+    'Playfair Display': (
+        'family': ('Playfair Display', serif),
+        'url': 'Playfair+Display:300,300i,400,400i,700,700i',
+    ),
+);
+
+$o-website-values-palettes: (
+    (
+        'color-palettes-name': 'ecuabyte-1',
+        'headings-font': 'Montserrat',
+        'navbar-font': 'Montserrat',
+        'buttons-font': 'Open Sans',
+        'header-template': 'hamburger',
+        'hamburger-position': 'right',
+        'footer-template': 'contact',
+    ),
+);
+
+$o-selected-color-palettes-names: append($o-selected-color-palettes-names, 'ecuabyte-1');
+
+$o-color-palettes-compatibility-indexes: (
+    1: 'ecuabyte-1',
+    2: 'ecuabyte-2',
+    3: 'ecuabyte-3',
+    4: 'generic-1',
+    5: 'generic-2',
+    6: 'generic-3',
+    7: 'generic-4',
+    8: 'generic-5',
+    9: 'generic-6',
+    10: 'generic-7',
+    11: 'generic-8',
+    12: 'generic-9',
+    13: 'generic-10',
+    14: 'generic-11',
+    15: 'generic-12',
+    16: 'generic-13',
+    17: 'generic-14',
+    18: 'generic-15',
+    19: 'generic-16',
+    20: 'generic-17',
+);
+$o-theme-color-palettes-compatibility-indexes: (
+    1: 'ecuabyte-1',
+    2: 'ecuabyte-2',
+    3: 'ecuabyte-3',
+);

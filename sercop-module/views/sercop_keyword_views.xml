@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sercop_keyword_tree" model="ir.ui.view">
+        <field name="name">sercop.keyword.tree</field>
+        <field name="model">sercop.keyword</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="category"/>
+                <field name="active"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_sercop_keyword_form" model="ir.ui.view">
+        <field name="name">sercop.keyword.form</field>
+        <field name="model">sercop.keyword</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="category"/>
+                        <field name="active"/>
+                        <field name="note"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sercop_keyword_search" model="ir.ui.view">
+        <field name="name">sercop.keyword.search</field>
+        <field name="model">sercop.keyword</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="activos" string="Activos" domain="[('active', '=', True)]"/>
+                <group expand="0" string="Agrupar por">
+                    <filter name="group_category" string="Categoría"
+                            domain="[]" context="{'group_by': 'category'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sercop_import_wizard_form" model="ir.ui.view">
+        <field name="name">sercop.import.wizard.form</field>
+        <field name="model">sercop.import.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="state" invisible="1"/>
+                    <field name="search_term" placeholder="Dejar vacío para buscar todas las palabras clave"/>
+                    <field name="max_records"/>
+                    <field name="create_leads"/>
+                </group>
+                <footer>
+                    <button name="action_import" string="Importar" type="object" class="btn-primary"
+                            invisible="state != 'choose'"/>
+                    <button string="Cerrar" class="btn-secondary" special="cancel"
+                            invisible="state != 'result'"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sercop_import_wizard_result_form" model="ir.ui.view">
+        <field name="name">sercop.import.wizard.result.form</field>
+        <field name="model">sercop.import.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="import_count" string="Procesos Importados"/>
+                    <field name="lead_count" string="Oportunidades Creadas"/>
+                </group>
+                <footer>
+                    <button string="Cerrar" class="btn-primary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sercop_ai_provider_tree" model="ir.ui.view">
+        <field name="name">sercop.ai.provider.tree</field>
+        <field name="model">sercop.ai.provider</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="provider_type"/>
+                <field name="model_name"/>
+                <field name="endpoint_url"/>
+                <field name="is_default"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_sercop_ai_provider_form" model="ir.ui.view">
+        <field name="name">sercop.ai.provider.form</field>
+        <field name="model">sercop.ai.provider</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="provider_type"/>
+                            <field name="endpoint_url"/>
+                            <field name="api_key" password="True"/>
+                            <field name="model_name"/>
+                        </group>
+                        <group>
+                            <field name="temperature"/>
+                            <field name="max_tokens"/>
+                            <field name="is_default"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sercop_ai_provider_search" model="ir.ui.view">
+        <field name="name">sercop.ai.provider.search</field>
+        <field name="model">sercop.ai.provider</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="default" string="Por defecto" domain="[('is_default', '=', True)]"/>
+                <filter name="active" string="Activos" domain="[('active', '=', True)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_sercop_ai_provider" model="ir.actions.act_window">
+        <field name="name">Proveedores IA</field>
+        <field name="res_model">sercop.ai.provider</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

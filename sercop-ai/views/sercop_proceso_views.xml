@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sercop_proceso_form_inherit_ai" model="ir.ui.view">
+        <field name="name">sercop.proceso.form.ai</field>
+        <field name="model">sercop.proceso</field>
+        <field name="inherit_id" ref="sercop-module.view_sercop_proceso_form"/>
+        <field name="arch" type="xml">
+            <header position="inside">
+                <field name="state" widget="statusbar"
+                    statusbar_visible="imported,reviewed,sent_to_crm"/>
+                <button name="action_review" type="object"
+                        string="Revisar"
+                        class="btn-primary"
+                        invisible="state != 'imported'"/>
+                <button name="action_send_to_crm" type="object"
+                        string="Enviar a CRM"
+                        class="btn-success"
+                        invisible="state != 'reviewed'"/>
+                <button name="action_open_lead" type="object"
+                        string="Ver Oportunidad CRM"
+                        class="btn-info"
+                        invisible="state != 'sent_to_crm'"/>
+            </header>
+
+            <button name="action_create_lead" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </button>
+
+            <button name="action_open_lead" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </button>
+
+            <button name="action_open_detalle" position="before">
+                <button name="action_generate_quotation_ai" type="object"
+                        string="Generar Cotización con IA"
+                        class="btn-warning"
+                        invisible="state not in ('reviewed', 'sent_to_crm')"/>
+            </button>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Documentos">
+                    <field name="document_ids" nolabel="1">
+                        <tree editable="bottom">
+                            <field name="name"/>
+                            <field name="document_type"/>
+                            <field name="file" filename="filename" required="1"/>
+                            <field name="filename" invisible="1"/>
+                        </tree>
+                        <form>
+                            <group>
+                                <field name="name"/>
+                                <field name="document_type"/>
+                                <field name="file" filename="filename" required="1"/>
+                                <field name="filename" invisible="1"/>
+                            </group>
+                        </form>
+                    </field>
+                </page>
+
+                <page string="Cotizaciones" invisible="not proforma_ids">
+                    <field name="proforma_ids" nolabel="1"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

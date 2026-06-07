@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sercop_proceso_user,sercop.proceso.user,model_sercop_proceso,base.group_user,1,1,1,1
+access_sercop_proceso_manager,sercop.proceso.manager,model_sercop_proceso,base.group_system,1,1,1,1
+access_sercop_keyword_user,sercop.keyword.user,model_sercop_keyword,base.group_user,1,0,0,0
+access_sercop_keyword_manager,sercop.keyword.manager,model_sercop_keyword,base.group_system,1,1,1,1
+access_sercop_import_wizard,sercop.import.wizard,model_sercop_import_wizard,base.group_user,1,1,1,1

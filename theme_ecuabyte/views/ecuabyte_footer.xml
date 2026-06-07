@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- Custom Footer for Ecuabyte -->
+<template id="ecuabyte_footer" inherit_id="website.layout" name="Ecuabyte Footer" active="True">
+    <xpath expr="//div[@id='footer']" position="replace">
+        <div id="footer" class="oe_structure oe_structure_solo" t-ignore="true" t-if="not no_footer">
+            <section class="s_text_block pt48 pb16 o_cc o_cc5" data-snippet="s_text_block" data-name="Footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 pt16 pb16">
+                            <h5 class="mb-3">Ecuabyte Innovations</h5>
+                            <p class="text-muted small">Soluciones digitales que transforman tu negocio. Desarrollo de software, ERP, infraestructura cloud e IoT.</p>
+                            <div class="s_social_media no_icon_color o_not_editable" data-snippet="s_social_media" data-name="Social Media" contenteditable="false">
+                                <a href="https://twitter.com/ecuabyte" class="s_social_media_twitter" target="_blank">
+                                    <i class="fa fa-twitter m-1 o_editable_media"/>
+                                </a>
+                                <a href="https://linkedin.com/company/ecuabyte" class="s_social_media_linkedin" target="_blank">
+                                    <i class="fa fa-linkedin m-1 o_editable_media"/>
+                                </a>
+                                <a href="https://instagram.com/ecuabyte" class="s_social_media_instagram" target="_blank">
+                                    <i class="fa fa-instagram m-1 o_editable_media"/>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 pt16 pb16">
+                            <h5 class="mb-3">Contacto</h5>
+                            <ul class="list-unstyled small">
+                                <li class="mb-2"><i class="fa fa-envelope me-2"/><a href="mailto:innovationsecuabyte@gmail.com">innovationsecuabyte@gmail.com</a></li>
+                                <li class="mb-2"><i class="fa fa-phone me-2"/><a href="tel:+593988422692">+593 988 422 692</a></li>
+                                <li class="mb-2"><i class="fa fa-globe me-2"/><a href="https://ecuabyte-innovations.com" target="_blank">ecuabyte-innovations.com</a></li>
+                                <li class="mb-2"><i class="fa fa-map-marker me-2"/>Ecuador 🇪🇨</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4 pt16 pb16">
+                            <h5 class="mb-3">Enlaces</h5>
+                            <ul class="list-unstyled small">
+                                <li class="mb-2"><a href="/">Inicio</a></li>
+                                <li class="mb-2"><a href="/servicios">Servicios</a></li>
+                                <li class="mb-2"><a href="/contactus">Contacto</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="s_hr pt16 pb16">
+                        <hr class="w-100 mx-auto" style="border-top-width:1px;border-top-style:solid;border-color:var(--600)"/>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-center pb16">
+                            <p class="small text-muted mb-0">Copyright © Ecuabyte Innovations</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </xpath>
+</template>
+
+</odoo>
